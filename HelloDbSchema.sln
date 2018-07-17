@@ -9,7 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{305A24DF-266
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{FD9C115B-ADE8-45CE-BAAD-BB74BD8FEF89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbSchema.Server", "DbSchema.Server\DbSchema.Server.csproj", "{D6BECC3C-9EFA-484E-964A-9916EFFAB4C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbSchema.Server", "DbSchema.Server\DbSchema.Server.csproj", "{D6BECC3C-9EFA-484E-964A-9916EFFAB4C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D.DbSchema.PO", "D.DbSchema.PO\D.DbSchema.PO.csproj", "{86F57003-3230-4A83-8315-A59B967BD20E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,10 @@ Global
 		{D6BECC3C-9EFA-484E-964A-9916EFFAB4C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6BECC3C-9EFA-484E-964A-9916EFFAB4C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6BECC3C-9EFA-484E-964A-9916EFFAB4C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86F57003-3230-4A83-8315-A59B967BD20E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86F57003-3230-4A83-8315-A59B967BD20E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86F57003-3230-4A83-8315-A59B967BD20E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86F57003-3230-4A83-8315-A59B967BD20E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{7C1BE9AC-6851-4887-A298-408B862E2C50} = {305A24DF-266D-42D8-B95E-8488964773F3}
 		{D6BECC3C-9EFA-484E-964A-9916EFFAB4C6} = {305A24DF-266D-42D8-B95E-8488964773F3}
+		{86F57003-3230-4A83-8315-A59B967BD20E} = {305A24DF-266D-42D8-B95E-8488964773F3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EE5B9A10-F9A3-409B-A056-E7BE542320BE}
