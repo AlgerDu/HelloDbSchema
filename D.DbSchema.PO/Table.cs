@@ -4,27 +4,24 @@ using System.Text;
 
 namespace D.DbSchema.PO
 {
-    /// <summary>
-    /// 项目
-    /// </summary>
-    public partial class Project
+    public partial class Table
     {
         public int ID { get; set; }
 
-        /// <summary>
-        /// 项目编号，主键；
-        /// 暂时不对外开放修改
-        /// </summary>
         public int No { get; set; }
+
+        public int ProjectNo { get; set; }
 
         public string Name { get; set; }
 
         public string Remark { get; set; }
 
+        public int SortIndex { get; set; }
+
         public DateTimeOffset CreateTime { get; set; }
 
-        public DateTimeOffset UpdateTime { get; set; }
+        public bool IsStable { get; set; }
 
-        public bool IsDelete { get; set; }
+        public bool IsHistory { get; set; }
     }
 }
