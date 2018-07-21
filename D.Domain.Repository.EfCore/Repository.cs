@@ -17,8 +17,14 @@ namespace D.Domain
 
         protected DbSet<TEntity> _entitys;
 
-        public Repository()
+        public IUnitOfWork Uow => _efUOW;
+
+        public Repository(
+            IEFUnitOfWork uow
+            )
         {
+            _efUOW = uow;
+            _entitys = _efUOW.Context.Set<TEntity>();
         }
 
         public bool Delete(TPrimaryKey key)
@@ -37,7 +43,7 @@ namespace D.Domain
 
         public void Dispose()
         {
-            _efUOW.Context.SaveChanges();
+            _efUOW.Dispose();
         }
 
         public TEntity GetByKey(TPrimaryKey key)
@@ -60,13 +66,6 @@ namespace D.Domain
         public int SaveChange()
         {
             return _efUOW.Context.SaveChanges();
-        }
-
-        public void SetUow(IUnitOfWork uow)
-        {
-            _efUOW = uow as IEFUnitOfWork;
-
-            _entitys = _efUOW.Context.Set<TEntity>();
         }
 
         public bool Update(TEntity entity)

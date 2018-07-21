@@ -9,11 +9,7 @@ namespace D.Domain
         where TEntity : class, IEntity<TPrimaryKey>
         where TPrimaryKey : IEquatable<TPrimaryKey>
     {
-        /// <summary>
-        /// 设置工作单元
-        /// </summary>
-        /// <param name="uow"></param>
-        void SetUow(IUnitOfWork uow);
+        IUnitOfWork Uow { get; }
 
         /// <summary>
         /// 简单通用查询
