@@ -1,0 +1,79 @@
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace D.Domain
+{
+    /// <summary>
+    /// 通用仓储，用于基类和一些需要简单对待的数据库模型
+    /// </summary>
+    public class Repository<TEntity, TPrimaryKey> : IRepository<TEntity, TPrimaryKey>
+        where TEntity : class, IEntity<TPrimaryKey>
+        where TPrimaryKey : IEquatable<TPrimaryKey>
+    {
+        protected IEFUnitOfWork _efUOW;
+
+        protected DbSet<TEntity> _entitys;
+
+        public Repository()
+        {
+        }
+
+        public bool Delete(TPrimaryKey key)
+        {
+            var entity = _entitys.FirstOrDefault(ee => ee.PK.Equals(key));
+
+            return Delete(entity);
+        }
+
+        public bool Delete(TEntity entity)
+        {
+            _efUOW.RegisterDeleted(entity);
+
+            return true;
+        }
+
+        public void Dispose()
+        {
+            _efUOW.Context.SaveChanges();
+        }
+
+        public TEntity GetByKey(TPrimaryKey key)
+        {
+            return _entitys.FirstOrDefault(ee => ee.PK.Equals(key));
+        }
+
+        public bool Insert(TEntity entity)
+        {
+            _efUOW.RegisterNew(entity);
+
+            return true;
+        }
+
+        public IQueryable<TEntity> Query()
+        {
+            return _entitys;
+        }
+
+        public int SaveChange()
+        {
+            return _efUOW.Context.SaveChanges();
+        }
+
+        public void SetUow(IUnitOfWork uow)
+        {
+            _efUOW = uow as IEFUnitOfWork;
+
+            _entitys = _efUOW.Context.Set<TEntity>();
+        }
+
+        public bool Update(TEntity entity)
+        {
+            _efUOW.RegisterModified(entity);
+
+            return true;
+        }
+    }
+}
