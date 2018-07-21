@@ -4,7 +4,7 @@ using System.Text;
 
 namespace D.DbSchema.PO
 {
-    public partial class Version
+    public partial class ProjectVersion
     {
         public int ID { get; set; }
 
