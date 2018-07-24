@@ -17,7 +17,7 @@ namespace D.DbSchema.Domain
         public DbSet<ProjectVersion> ProjectVersions { get; set; }
         public DbSet<VersionTree> VersionTrees { get; set; }
 
-        public DbSchemaContext(DbContextOptions options)
+        public DbSchemaContext(DbContextOptions<DbSchemaContext> options)
             : base(options)
         {
 
