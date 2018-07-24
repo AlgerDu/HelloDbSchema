@@ -1,0 +1,29 @@
+﻿using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using D.DbSchema.Domain;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace DbSchema.Server
+{
+    public static class DbSchemaService
+    {
+        public static IServiceProvider AddDbSchema(
+            this IServiceCollection services
+            , IConfiguration configuration)
+        {
+            var builder = new ContainerBuilder();
+
+            services.AddDbContext<DbSchemaContext>();
+            builder.Populate(services);
+
+            builder.AddPostgreSQL(configuration.GetConnectionString("Default"));
+
+            return new AutofacServiceProvider(builder.Build());
+        }
+    }
+}
