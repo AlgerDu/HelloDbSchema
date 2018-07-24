@@ -23,7 +23,7 @@ namespace D.DbSchema.PO
 
         public DateTimeOffset CreateTime { get; set; }
 
-        public DateTimeOffset UpdateTime { get; set; }
+        public DateTimeOffset? UpdateTime { get; set; }
 
         public bool IsDelete { get; set; }
     }

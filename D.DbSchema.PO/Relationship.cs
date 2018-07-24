@@ -16,11 +16,11 @@ namespace D.DbSchema.PO
 
         public int MajorTableNo { get; set; }
 
-        public int MinorTableNo { get; set; }
-
         public int MajorTableFieldNo { get; set; }
 
-        public int MinorTableFieldNo { get; set; }
+        public int? MinorTableNo { get; set; }
+
+        public int? MinorTableFieldNo { get; set; }
 
         public int RelationshipType { get; set; }
 

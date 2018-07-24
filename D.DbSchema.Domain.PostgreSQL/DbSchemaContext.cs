@@ -1,4 +1,5 @@
-﻿using D.DbSchema.PO;
+﻿using D.DbSchema.Domain.Mappers;
+using D.DbSchema.PO;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,19 @@ namespace D.DbSchema.Domain
             : base(options)
         {
 
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.ApplyConfiguration(new ProjectCg());
+            modelBuilder.ApplyConfiguration(new TableCg());
+            modelBuilder.ApplyConfiguration(new FieldCg());
+            modelBuilder.ApplyConfiguration(new FieldTypeCg());
+            modelBuilder.ApplyConfiguration(new RelationshipCg());
+            modelBuilder.ApplyConfiguration(new ProjectVersionCg());
+            modelBuilder.ApplyConfiguration(new VersionTreeCg());
         }
     }
 }
