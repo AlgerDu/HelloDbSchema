@@ -266,3 +266,6 @@ DbSchema.Server/wwwroot
 #数据库迁移的一些忽略项
 D.DbSchema.Domain.PostgreSQL/DesignTimeDbContextFactory.cs
 D.DbSchema.Domain.PostgreSQL/Migrations
+
+#配置忽略方式
+DbSchema.Server/appsettings.json
