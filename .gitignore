@@ -262,3 +262,7 @@ __pycache__/
 
 # 自定义忽略项
 DbSchema.Server/wwwroot
+
+#数据库迁移的一些忽略项
+D.DbSchema.Domain.PostgreSQL/DesignTimeDbContextFactory.cs
+D.DbSchema.Domain.PostgreSQL/Migrations

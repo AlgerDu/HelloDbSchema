@@ -1,0 +1,28 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace D.DbSchema.Domain
+{
+    public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<DbSchemaContext>
+    {
+        public DbSchemaContext CreateDbContext(string[] args)
+        {
+            //if (args.Length != 1)
+            //{
+            //    throw new Exception("args 参数不正确");
+            //}
+
+            var connStr = "Host=localhost;Database=HelloDbSchema;Username=postgres;Password=duzhiwei";
+
+            var optionsBuilder = new DbContextOptionsBuilder<DbSchemaContext>();
+
+            optionsBuilder.UseNpgsql(connStr);
+
+
+            return new DbSchemaContext(optionsBuilder.Options);
+        }
+    }
+}
