@@ -32,6 +32,9 @@ namespace D.DbSchema.Domain
                 .As<IUnitOfWorkFactory>()
                 .AsSelf()
                 .SingleInstance();
+
+            builder.RegisterGeneric(typeof(Repository<,>))
+                .As(typeof(IRepository<,>));
         }
     }
 }
