@@ -1,4 +1,5 @@
-﻿using System;
+﻿using D.Domain;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -26,5 +27,19 @@ namespace D.DbSchema.PO
         public DateTimeOffset? UpdateTime { get; set; }
 
         public bool IsDelete { get; set; }
+    }
+
+    public partial class Project : IEntity<int>
+    {
+        public int PK
+        {
+            get => ID;
+            set => ID = value;
+        }
+
+        public bool IsTransient()
+        {
+            return PK == default(int);
+        }
     }
 }
