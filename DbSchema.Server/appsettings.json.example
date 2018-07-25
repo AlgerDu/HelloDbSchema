@@ -1,4 +1,7 @@
 ﻿{
+  "ConnectionStrings": {
+    "Default": "数据库连接字符串"
+  },
   "Logging": {
     "IncludeScopes": false,
     "Debug": {
@@ -8,7 +11,10 @@
     },
     "Console": {
       "LogLevel": {
-        "Default": "Warning"
+        "Default": "Information",
+        "Microsoft.AspNetCore": "Warning",
+        "DbSchema": "Trace",
+        "D": "Trace"
       }
     }
   }
