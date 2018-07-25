@@ -11,11 +11,11 @@ namespace D.DbSchema.Domain
     {
         public static void AddPostgreSQL(this ContainerBuilder builder, string connStr)
         {
-            //var optionsBuilder = new DbContextOptionsBuilder<DbSchemaContext>();
-            //optionsBuilder.UseNpgsql(connStr);
+            var optionsBuilder = new DbContextOptionsBuilder<DbSchemaContext>();
+            optionsBuilder.UseNpgsql(connStr);
 
-            //builder.RegisterInstance(optionsBuilder.Options)
-            //    .As<DbContextOptions<DbSchemaContext>>();
+            builder.RegisterInstance(optionsBuilder.Options)
+                .As<DbContextOptions<DbSchemaContext>>();
 
             builder.RegisterType<PostgreSqlEfUnitOfWork>()
                 .As<IEFUnitOfWork>()

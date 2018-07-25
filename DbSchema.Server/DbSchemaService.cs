@@ -19,15 +19,9 @@ namespace DbSchema.Server
         {
             var builder = new ContainerBuilder();
 
-            services.AddDbContext<DbSchemaContext>(
-                options => options.UseNpgsql(configuration.GetConnectionString("Default"))
-                );
+            services.AddDbContext<DbSchemaContext>();
 
             builder.Populate(services);
-
-            //builder.RegisterType<DbSchemaContext>()
-            //    .As<DbContext>()
-            //    .AsSelf();
 
             builder.AddPostgreSQL(configuration.GetConnectionString("Default"));
 
