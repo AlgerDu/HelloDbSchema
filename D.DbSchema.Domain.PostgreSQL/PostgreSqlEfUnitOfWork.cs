@@ -10,7 +10,7 @@ namespace D.DbSchema.Domain
     {
         public DbSchemaContext DbSchemaContext => Context as DbSchemaContext;
 
-        PostgreSqlEfUnitOfWork(
+        public PostgreSqlEfUnitOfWork(
             ILogger<PostgreSqlEfUnitOfWork> logger
             , DbSchemaContext context)
             : base(context)

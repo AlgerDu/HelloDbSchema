@@ -12,23 +12,23 @@ namespace D.DbSchema.Domain
         ILogger _logger;
 
         ILifetimeScope _lifetimeScope;
-        IComponentContext _componentContext;
 
         public UnitOfWorkFacoty(
             ILogger<UnitOfWorkFacoty> logger
             , ILifetimeScope lifetimeScope
-            , IComponentContext componentContext
             )
         {
             _logger = logger;
 
             _lifetimeScope = lifetimeScope;
-            _componentContext = componentContext;
         }
 
         public IUnitOfWork Create()
         {
-            return _componentContext.Resolve<IUnitOfWork>();
+            using (var scope = _lifetimeScope.BeginLifetimeScope())
+            {
+                return scope.Resolve<IUnitOfWork>();
+            }
         }
     }
 }

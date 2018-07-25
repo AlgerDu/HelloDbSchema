@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using D.DbSchema.Domain;
 using D.DbSchema.PO;
 using D.Domain;
 using Microsoft.AspNetCore.Mvc;
@@ -21,6 +22,7 @@ namespace DbSchema.Server.Controllers
             ILogger<ValuesController> logger
             , IUnitOfWorkFactory uowFactory
             , IRepositoryFactory repositoryFactory
+            , DbSchemaContext dbSchemaContext
             )
         {
             _logger = logger;
