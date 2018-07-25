@@ -71,6 +71,22 @@ namespace DbSchema.Server.Controllers
 
             var repository = _repositoryFactory.Create<Project, int>();
 
+            //var newP = new Project
+            //{
+            //    CreateTime = DateTimeOffset.Now,
+            //    IsDelete = false,
+            //    Remark = null,
+            //    Name = "数据库管理",
+            //    No = 1,
+            //    UpdateTime = null
+            //};
+
+            //repository.Insert(newP);
+
+            //var i = repository.Uow.Commit();
+
+            //_logger.LogDebug($"提交成功的个数 {i}");
+
             var p = repository.Query().FirstOrDefault();
 
             return p;
