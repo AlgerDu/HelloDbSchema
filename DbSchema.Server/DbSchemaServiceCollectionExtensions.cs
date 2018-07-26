@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DbSchema.Server
 {
-    public static class DbSchemaService
+    public static class DbSchemaServiceCollectionExtensions
     {
         public static IServiceProvider AddDbSchema(
             this IServiceCollection services
