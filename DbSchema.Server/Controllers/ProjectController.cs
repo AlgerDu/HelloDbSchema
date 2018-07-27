@@ -1,4 +1,5 @@
-﻿using DbSchema.Server.Models;
+﻿using AutoMapper;
+using DbSchema.Server.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,12 +13,15 @@ namespace DbSchema.Server.Controllers
     public class ProjectController : Controller
     {
         ILogger _logger;
+        IMapper _mapper;
 
         public ProjectController(
             ILogger<ProjectController> logger
+            , IMapper mapper
             )
         {
             _logger = logger;
+            _mapper = mapper;
         }
 
         [HttpPost("add")]

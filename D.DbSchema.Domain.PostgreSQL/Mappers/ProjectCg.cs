@@ -11,8 +11,6 @@ namespace D.DbSchema.Domain.Mappers
     {
         public void Configure(EntityTypeBuilder<Project> builder)
         {
-            builder.Ignore(e => e.PK);
-
             builder.HasKey(e => e.ID);
 
             builder.Property(e => e.Name).HasMaxLength(64);
