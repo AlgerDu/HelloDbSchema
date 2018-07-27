@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DbSchema.Server.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,10 @@ namespace DbSchema.Server.Controllers
             _logger = logger;
         }
 
-        
+        [HttpPost("add")]
+        public int AddProject([FromBody]ProjectAddModel projectAddModel)
+        {
+            return 0;
+        }
     }
 }

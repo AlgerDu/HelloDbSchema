@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using D.DbSchema.Domain;
 using DbSchema.Server.Filters;
 using Microsoft.AspNetCore.Builder;
@@ -34,6 +35,8 @@ namespace DbSchema.Server
                 {
                     jsonOptions.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
                 });
+
+            services.AddAutoMapper();
 
             return services.AddDbSchema(Configuration);
         }
