@@ -41,9 +41,10 @@ namespace DbSchema.Server.Controllers
             var newProject = _mapper.Map<Project>(projectAddModel);
 
             var projectRepo = _repositoryFactory.Create<IProjectRepository>();
-            var repo2 = _repositoryFactory.Create<Project, int>();
 
-            return 0;
+            var hasProject = projectRepo.FindByName(newProject.Name) != null;
+
+            return hasProject ? 1 : 0;
         }
     }
 }
