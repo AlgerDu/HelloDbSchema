@@ -68,5 +68,15 @@ namespace DbSchema.Server.Controllers
 
             return Result.CreateSuccess(_mapper.Map<NewProjectModel>(newProject));
         }
+
+        [HttpPost("delete")]
+        public IResult DeleteProject([FromBody]ProjectDelteModel projectDelteModel)
+        {
+            var repo = _repositoryFactory.Create<IProjectRepository>();
+
+            var rst = repo.MarkDelete(projectDelteModel.ProjectNo);
+
+            return rst ? Result.CreateSuccess() : Result.CreateError();
+        }
     }
 }

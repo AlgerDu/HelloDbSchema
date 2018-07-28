@@ -43,6 +43,7 @@ namespace D.DbSchema.Domain
             if (entity != null)
             {
                 entity.IsDelete = true;
+                entity.UpdateTime = DateTimeOffset.Now;
 
                 return Update(entity);
             }
