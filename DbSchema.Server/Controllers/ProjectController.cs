@@ -2,6 +2,7 @@
 using D.DbSchema.Domain;
 using D.DbSchema.PO;
 using D.Domain;
+using D.Utils;
 using DbSchema.Server.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -36,15 +37,36 @@ namespace DbSchema.Server.Controllers
         }
 
         [HttpPost("add")]
-        public int AddProject([FromBody]ProjectAddModel projectAddModel)
+        public IResult<NewProjectModel> AddProject([FromBody]ProjectAddModel projectAddModel)
         {
-            var newProject = _mapper.Map<Project>(projectAddModel);
-
             var projectRepo = _repositoryFactory.Create<IProjectRepository>();
 
-            var hasProject = projectRepo.FindByName(newProject.Name) != null;
+            var project = projectRepo.FindByName(projectAddModel.Name);
 
-            return hasProject ? 1 : 0;
+            if (project != null)
+            {
+                return Result.CreateError<NewProjectModel>("已经存在相同名称的项目");
+            }
+
+            var newProject = _mapper.Map<Project>(projectAddModel);
+
+            projectRepo.Insert(newProject);
+
+            if (projectRepo.Uow.Commit() != 1)
+            {
+                return Result.CreateError<NewProjectModel>("数据库保存失败");
+            }
+
+            newProject.No = newProject.ID;
+
+            projectRepo.Update(newProject);
+
+            if (projectRepo.Uow.Commit() != 1)
+            {
+                return Result.CreateError<NewProjectModel>("数据库保存失败");
+            }
+
+            return Result.CreateSuccess(_mapper.Map<NewProjectModel>(newProject));
         }
     }
 }

@@ -31,6 +31,7 @@
   <ItemGroup>
     <ProjectReference Include="..\D.DbSchema.Core\D.DbSchema.Core.csproj" />
     <ProjectReference Include="..\D.DbSchema.Domain.PostgreSQL\D.DbSchema.Domain.PostgreSQL.csproj" />
+    <ProjectReference Include="..\D.Utils.Result\D.Utils.Result.csproj" />
   </ItemGroup>
 
 </Project>

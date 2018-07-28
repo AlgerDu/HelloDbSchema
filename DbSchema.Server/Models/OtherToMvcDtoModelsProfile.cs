@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace DbSchema.Server.Models
 {
-    public class MvcModelsProfile : Profile
+    public class OtherToMvcDtoModelsProfile : Profile
     {
-        public MvcModelsProfile()
+        public OtherToMvcDtoModelsProfile()
         {
-            CreateMap<ProjectAddModel, Project>();
+            CreateMap<Project, NewProjectModel>();
         }
     }
 }

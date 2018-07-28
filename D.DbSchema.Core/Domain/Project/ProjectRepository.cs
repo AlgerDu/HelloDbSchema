@@ -26,7 +26,7 @@ namespace D.DbSchema.Domain
 
         public Project FindByName(string name)
         {
-            return Query().FirstOrDefault(pp => pp.Name == name);
+            return Query().FirstOrDefault(pp => pp.Name == name && !pp.IsDelete);
         }
 
         public bool MarkDelete(Project entity)
