@@ -15,6 +15,15 @@ namespace D.DbSchema.PO
             set => ID = value;
         }
 
+        /// <summary>
+        /// 主动设置一些初始值
+        /// </summary>
+        public Project()
+        {
+            CreateTime = DateTimeOffset.Now;
+            IsDelete = false;
+        }
+
         public bool IsTransient()
         {
             return PK == default(int);

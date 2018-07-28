@@ -24,6 +24,7 @@ namespace DbSchema.Server
             builder.Populate(services);
 
             builder.AddPostgreSQL(configuration.GetConnectionString("Default"));
+            builder.AddDbSchemaDomain();
 
             return new AutofacServiceProvider(builder.Build());
         }

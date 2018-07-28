@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using D.DbSchema.PO;
 using DbSchema.Server.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -27,6 +28,8 @@ namespace DbSchema.Server.Controllers
         [HttpPost("add")]
         public int AddProject([FromBody]ProjectAddModel projectAddModel)
         {
+            var newProject = _mapper.Map<Project>(projectAddModel);
+
             return 0;
         }
     }

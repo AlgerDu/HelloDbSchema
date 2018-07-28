@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <RootNamespace>D.DbSchema</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\D.DbSchema.Domain.PostgreSQL\D.DbSchema.Domain.PostgreSQL.csproj" />
+    <ProjectReference Include="..\D.DbSchema.PO\D.DbSchema.PO.csproj" />
+    <ProjectReference Include="..\D.Domain.Abstractions\D.Domain.Abstractions.csproj" />
+    <ProjectReference Include="..\D.Domain.Repository.EfCore\D.Domain.Repository.EfCore.csproj" />
+  </ItemGroup>
+
+</Project>

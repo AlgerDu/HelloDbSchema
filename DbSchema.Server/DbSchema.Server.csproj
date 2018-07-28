@@ -29,6 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\D.DbSchema.Core\D.DbSchema.Core.csproj" />
     <ProjectReference Include="..\D.DbSchema.Domain.PostgreSQL\D.DbSchema.Domain.PostgreSQL.csproj" />
   </ItemGroup>
 
