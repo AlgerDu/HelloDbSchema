@@ -27,48 +27,48 @@ namespace D.Domain
             _entitys = _efUOW.Context.Set<TEntity>();
         }
 
-        public bool Delete(TPrimaryKey key)
+        public virtual bool Delete(TPrimaryKey key)
         {
             var entity = _entitys.FirstOrDefault(ee => ee.PK.Equals(key));
 
             return Delete(entity);
         }
 
-        public bool Delete(TEntity entity)
+        public virtual bool Delete(TEntity entity)
         {
             _efUOW.RegisterDeleted(entity);
 
             return true;
         }
 
-        public void Dispose()
+        public virtual void Dispose()
         {
             _efUOW.Dispose();
         }
 
-        public TEntity GetByKey(TPrimaryKey key)
+        public virtual TEntity GetByKey(TPrimaryKey key)
         {
             return _entitys.FirstOrDefault(ee => ee.PK.Equals(key));
         }
 
-        public bool Insert(TEntity entity)
+        public virtual bool Insert(TEntity entity)
         {
             _efUOW.RegisterNew(entity);
 
             return true;
         }
 
-        public IQueryable<TEntity> Query()
+        public virtual IQueryable<TEntity> Query()
         {
             return _entitys;
         }
 
-        public int SaveChange()
+        public virtual int SaveChange()
         {
             return _efUOW.Context.SaveChanges();
         }
 
-        public bool Update(TEntity entity)
+        public virtual bool Update(TEntity entity)
         {
             _efUOW.RegisterModified(entity);
 

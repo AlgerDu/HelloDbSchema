@@ -5,7 +5,14 @@ using System.Text;
 
 namespace D.Domain
 {
-    public interface IRepository<TEntity, TPrimaryKey> : IDisposable
+    public interface IRepository
+    {
+
+    }
+
+    public interface IRepository<TEntity, TPrimaryKey> :
+        IRepository
+        , IDisposable
         where TEntity : class, IEntity<TPrimaryKey>
         where TPrimaryKey : IEquatable<TPrimaryKey>
     {

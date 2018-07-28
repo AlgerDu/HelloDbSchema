@@ -39,10 +39,8 @@ namespace D.DbSchema.Domain
             };
         }
 
-        public TRepository Create<TRepository, TEntity, TPrimaryKey>(IUnitOfWork uow)
-            where TRepository : IRepository<TEntity, TPrimaryKey>
-            where TEntity : class, IEntity<TPrimaryKey>
-            where TPrimaryKey : IEquatable<TPrimaryKey>
+        public TRepository Create<TRepository>(IUnitOfWork uow)
+            where TRepository : IRepository
         {
             using (var scope = _lifetimeScope.BeginLifetimeScope((builder) =>
             {
@@ -62,14 +60,12 @@ namespace D.DbSchema.Domain
             return Create<TEntity, TPrimaryKey>(uow);
         }
 
-        public TRepository Create<TRepository, TEntity, TPrimaryKey>()
-            where TRepository : IRepository<TEntity, TPrimaryKey>
-            where TEntity : class, IEntity<TPrimaryKey>
-            where TPrimaryKey : IEquatable<TPrimaryKey>
+        public TRepository Create<TRepository>()
+            where TRepository : IRepository
         {
             var uow = _uowFactory.Create();
 
-            return Create<TRepository, TEntity, TPrimaryKey>(uow);
+            return Create<TRepository>(uow);
         }
     }
 }
