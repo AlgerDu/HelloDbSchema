@@ -21,7 +21,7 @@ namespace D.DbSchema.Domain
         /// </summary>
         /// <param name="PK"></param>
         /// <returns></returns>
-        bool MarkDelete(int PK);
+        bool MarkDelete(int No);
 
         /// <summary>
         /// 通过名称查找

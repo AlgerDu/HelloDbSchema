@@ -36,9 +36,9 @@ namespace D.DbSchema.Domain
             return Update(entity);
         }
 
-        public bool MarkDelete(int PK)
+        public bool MarkDelete(int No)
         {
-            var entity = GetByKey(PK);
+            var entity = Query().FirstOrDefault(pp => !pp.IsDelete && pp.No == No);
 
             if (entity != null)
             {

@@ -19,7 +19,10 @@ namespace DbSchema.Server
         {
             var builder = new ContainerBuilder();
 
-            services.AddDbContext<DbSchemaContext>();
+            services.AddDbContext<DbSchemaContext>(options =>
+            {
+                options.UseNpgsql(configuration.GetConnectionString("Default"));
+            });
 
             builder.Populate(services);
 
