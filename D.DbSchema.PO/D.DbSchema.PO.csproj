@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\D.DbSchema.Abstractions\D.DbSchema.Abstractions.csproj" />
     <ProjectReference Include="..\D.Domain.Abstractions\D.Domain.Abstractions.csproj" />
   </ItemGroup>
 
