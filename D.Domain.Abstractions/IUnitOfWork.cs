@@ -4,7 +4,7 @@ using System.Text;
 
 namespace D.Domain
 {
-    public interface IUnitOfWork
+    public interface IUnitOfWork : IDisposable
     {
         bool IsCommitted { get; }
 

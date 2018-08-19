@@ -13,7 +13,7 @@ namespace D.DbSchema.Domain
         Repository<Project, int>
         , IProjectRepository
     {
-        ILogger<ProjectRepository> _logger;
+        ILogger _logger;
 
         public ProjectRepository(
             ILogger<ProjectRepository> logger

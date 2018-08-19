@@ -4,7 +4,7 @@ using System.Text;
 
 namespace D.Domain
 {
-    public interface IUnitOfWorkRepositoryContext : IUnitOfWork, IDisposable
+    public interface IUnitOfWorkRepositoryContext : IUnitOfWork
     {
         /// <summary>
         /// 将聚合根的状态标记为新建

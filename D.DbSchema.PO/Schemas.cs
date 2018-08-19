@@ -31,4 +31,32 @@ namespace D.DbSchema.PO
             return PK == default(int);
         }
     }
+
+    public partial class Field
+        : IEntity<int>
+        , ISchemaCheckChange<Field>
+    {
+        [NotMapped]
+        public int PK
+        {
+            get => ID;
+            set => ID = value;
+        }
+
+        public bool Changed(Field left)
+        {
+            return (
+                Name != left.Name
+                || Length != left.Length
+                || Nullable != left.Nullable
+                || Remark != left.Remark
+                || SortIndex != left.SortIndex
+                );
+        }
+
+        public bool IsTransient()
+        {
+            return PK == default(int);
+        }
+    }
 }
